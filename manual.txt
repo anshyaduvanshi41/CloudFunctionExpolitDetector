@@ -23,21 +23,23 @@ Step 2: Generate high-frequency requests (spam simulation)
 Next, simulate abusive or high-frequency traffic by sending many POST requests in a short time. This represents how a publicly exposed cloud-style endpoint can be misused.
 
 On macOS or Linux, run the following command once:
-
+```bash
 for i in {1..300}; do
   curl -s -X POST https://cloudfunctionexpolitdetector.onrender.com/vulnerable \
     -H "Content-Type: application/json" \
     -d '{"spam":"yes"}' > /dev/null
 done
+```
 
 On Windows, run this command once in PowerShell:
-
+```powershell
 1..300 | ForEach-Object {
   Invoke-RestMethod -Uri "https://cloudfunctionexpolitdetector.onrender.com/vulnerable" `
     -Method POST `
     -Body '{"spam":"yes"}' `
     -ContentType "application/json" | Out-Null
 }
+```
 
 No output appears in the terminal or PowerShell window. This is expected because the responses are intentionally suppressed.
 
