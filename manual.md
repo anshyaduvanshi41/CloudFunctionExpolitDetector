@@ -3,7 +3,7 @@ The service is deployed and accessible at the public URL. To observe its normal 
 On macOS or Linux, open a terminal and run:
 
 ```bash
-curl -X POST https://cloudfunctionexpolitdetector.onrender.com/vulnerable \
+curl -X POST https://cloudfunctionexpolitdetection.onrender.com/vulnerable \
   -H "Content-Type: application/json" \
   -d '{"hello":"world"}'
 ```
@@ -11,7 +11,7 @@ curl -X POST https://cloudfunctionexpolitdetector.onrender.com/vulnerable \
 On Windows, open PowerShell and run:
 
 ```powershell
-Invoke-RestMethod -Uri "https://cloudfunctionexpolitdetector.onrender.com/vulnerable" `
+Invoke-RestMethod -Uri "https://cloudfunctionexpolitdetection.onrender.com/vulnerable" `
   -Method POST `
   -Body '{"hello":"world"}' `
   -ContentType "application/json"
@@ -29,7 +29,7 @@ Next, simulate abusive or high-frequency traffic by sending many POST requests i
 On macOS or Linux, run the following command once:
 ```bash
 for i in {1..300}; do
-  curl -s -X POST https://cloudfunctionexpolitdetector.onrender.com/vulnerable \
+  curl -s -X POST https://cloudfunctionexpolitdetection.onrender.com/vulnerable \
     -H "Content-Type: application/json" \
     -d '{"spam":"yes"}' > /dev/null
 done
@@ -38,7 +38,7 @@ done
 On Windows, run this command once in PowerShell:
 ```powershell
 1..300 | ForEach-Object {
-  Invoke-RestMethod -Uri "https://cloudfunctionexpolitdetector.onrender.com/vulnerable" `
+  Invoke-RestMethod -Uri "https://cloudfunctionexpolitdetection.onrender.com/vulnerable" `
     -Method POST `
     -Body '{"spam":"yes"}' `
     -ContentType "application/json" | Out-Null
